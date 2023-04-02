@@ -1,16 +1,10 @@
-function subset(arr){
-    let result=[];
-    let biggestNumber=arr.shift();
-    result.push(biggestNumber);
-
-    for (element of arr) {
-       if(element>=biggestNumber){
-        result.push(element);
-        biggestNumber=element;
-       }
-    }
-    return result;
+function subset(arr) {
+    return arr.reduce((acc, value) => {
+        if (value >= (acc[acc.length - 1]|| arr[0])) {
+            acc.push(value);
+        }
+        return acc
+    },[])
 }
 
-subset([1,3,8,4,10,12,16,24,5]);
-subset([20,3,2,15,20]);
+console.log(subset([1,3,8,4,10,12,16,24,5]));
