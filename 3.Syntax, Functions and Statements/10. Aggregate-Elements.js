@@ -1,17 +1,8 @@
-function solve(elements){
-   
-    aggregate(elements,0,(a,b)=>a+b);
-    aggregate(elements,0,(a,b)=>a+1/b);
-    aggregate(elements,'',(a,b)=>a+b);
-
-    function aggregate(arr,inItVal,func){
-        let val=inItVal;
-        for(let i=0;i<arr.lenghth;i++)
-            val=func(val,arr[i]);
-        
-        console.log(val);
-    }
+function solve(arr) {
+  return `${arr.reduce((a, v) => a + v, 0)}
+    ${arr.reduce((a, v) => a + 1 / v,0)}
+    ${arr.join("")}
+    `;
 }
 
-
-solve(2,4,8,16);
+console.log(solve([2, 4, 8, 16]));
